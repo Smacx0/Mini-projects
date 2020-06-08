@@ -1,6 +1,9 @@
 Python-prg
 
-Embed.py
+Embed.py:-
+Is used to hide one file into another(eg: zip -> png).
+Result in the creation of new file with name you provided.
+
 	* First the prompt you to enter the cover file name,
 name of the file to hide and then output file name(must be the
 extension of cover file).
