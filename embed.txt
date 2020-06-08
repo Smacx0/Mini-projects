@@ -1,0 +1,13 @@
+Python-prg
+
+Embed.py
+	* First the prompt you to enter the cover file name,
+name of the file to hide and then output file name(must be the
+extension of cover file).
+(make sure that you have given extensions of those files)
+	* If the specified file name/path of files is wrong
+it prompt some error.
+	* Next the program reads the binary datas of both 
+files and then program begins to write the binary to the output
+file with the name that you have been provided.
+	* Finally it display the finally is ready. 
