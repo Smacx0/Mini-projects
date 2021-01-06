@@ -1,0 +1,20 @@
+{
+    "name": "Taby",
+    "version": "1.0",
+    "manifest_version": 2,
+    "description": "A small info about your Browser Tabs.",
+    "homepage_url": "https://github.com/smac01",
+    "author":"smac01",
+    "permissions": ["tabs"],
+    "icons": {
+        "48": "images/taby.png"
+    },
+    "browser_action": {
+        "default_title":"Taby",
+        "default_popup": "popup/popup.html",
+        "default_icon": {
+            "16": "images/icon16.png",
+            "32": "images/icon32.png"
+        }
+    }
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Demo</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu|Poppins' rel='stylesheet'>
+</head>
+<style type="text/css">
+	body {
+		margin: 0; font-family: 'Poppins'; min-width: 300px;
+		background: #fff;color: #171717;
+	}
+	.header { 
+		align-items: center; border-bottom: 1px solid #ff0000; margin-bottom: 10px;
+	}
+	.header img {
+		padding-left: 10px;
+	}
+	.theme-toggle {
+		float: right; border-style: none; background: #fff;
+		cursor: pointer; padding-top: 15px;
+	}
+	.material-icons {
+		font-size: 18px;
+	}
+	.dark-theme {
+		background: #323a42; color: #eee;
+	}
+	.dark-theme .theme-toggle {
+		background: #323a42; color: #fff;
+	}
+	.request { 
+		width: 90%; margin: 0 auto;  
+		display: flex; flex-direction: row;
+		text-align: center;justify-content: center;
+		box-shadow: 0 0 5px rgba(0,0,0,0.5);align-items: center;
+	}
+	.response {
+		width: 90%; margin: 0 auto;  display: none;
+		text-align: center;justify-content: center;
+		box-shadow: 0 0 5px rgba(0,0,0,0.5);align-items: center;
+	}
+	.info {
+		font-size: 16px;
+	}
+	.response .info{
+		padding: 5px 0;  border-bottom: 1px solid #d9d9d9;
+	}
+	.find { 
+		padding: 10px; background: #02c4ff; color: #fff; 
+		background: #3498db;
+	}
+	.find:hover {
+		cursor: pointer; opacity: 0.7;
+	}
+	.get ul {
+		display: flex; flex-direction: row; margin: 0;padding: 0;
+		list-style: none;justify-content: center;
+	}
+	.get ul li {
+		padding: 5px 15px 5px 15px;
+	}
+	.get span {
+		padding:3px 12px; cursor: pointer;
+		background: #3498db;color:#f4f4f4;
+	}
+	.copy, .retry {
+		border-radius: 20px; opacity: 0.8;
+	}
+	.copy:hover, .retry:hover {
+		opacity: 1; box-shadow: 0px 5px 8px rgba(0,0,0,0.3);
+		color: #ffffff;
+	}
+	.dark-theme .request, .dark-theme .response {
+		background: #404953;
+	}
+	.dark-theme .copy ,.dark-theme .retry {
+		background: #1174b7a6; color: #9cc8ff;
+	}
+	.dark-theme .copy:hover,.dark-theme .retry:hover {
+		/*background: #3498db;*/ color: #f4f4f4;
+		box-shadow: 0 0 8px rgba(0,0,0,0.3);
+	}
+	.dark-theme .find {
+		opacity: 0.7;
+	}
+	.dark-theme .find:hover {
+		opacity: 1;
+	}
+
+	.tab-info {
+		padding: 10px;
+	}
+	.tab-info table {
+		margin: 0 auto;  /*font-family: 'Poppins'; font-size: 12px;*/
+	}
+	.styled-table {
+		border-collapse: collapse; margin: 25px 0;
+		border-radius: 3px;font-family: sans-serif;
+		font-size: 14px;
+		box-shadow: 0 0 20px rgba(0,0,0, 0.15); overflow: hidden;
+	}
+	.styled-table td,th {
+		padding: 12px 20px;
+	}
+	.styled-table tbody tr {
+		padding: 12px 15px; border-bottom: 1px solid #dddddd;
+	}
+	.styled-table tbody th {
+		font-weight: bold; background: #3498db; color: #f4f4f4;
+	}
+	.dark-theme .styled-table tbody th {
+		background: #3498db;
+	}
+	.styled-table tbody tr:last-of-type {
+		border-bottom: 2px solid #02acee;
+	}
+	.styled-table tbody tr:hover {
+		background: #f1f4f7; color: #24c0f0; 
+	}
+	.dark-theme .styled-table tbody tr:hover {
+		background: #454f59; color: #24c0f0;
+	}
+</style>
+<body>
+<header>
+	<div class="header">
+		<img src="../images/taby.png" width="55px" height="45px">
+		<button class="theme-toggle material-icons">brightness_6</button>
+	</div>
+</header>
+<section>
+	<div class="request">
+		<div class="info" style="width: 80%;"><span id='ask'>Wanna see your IP?<span></div>
+		<div class="find" style="width: 20%">Find</div>
+	</div>
+	
+	<div class="response">
+		<div class="info" style="width: 100%; "><span id='responde'>Your IP</span></div>
+		<div class="get">
+			<ul>
+				<li><span class="copy" title="Copy">Copy</span></li>
+				<li><span class="retry" title="Retry">Retry</span></li>
+			</ul>
+		</div>
+	</div>
+	<div class="tab-info">
+		<table class="styled-table">
+			<tbody>
+				<tr>
+					<th>Query</th>
+					<th></th>
+					<th>Result</th>
+				</tr>
+				<tr>
+					<td>Tabs</td>
+					<td>:</td>
+					<td><span id="tabs"></span></td>
+				</tr>
+				<tr>
+					<td>Tab</td>
+					<td>:</td>
+					<td><span id='current-tab'></span></td>
+				</tr>
+				<tr>
+					<td>Protocol</td>
+					<td>:</td>
+					<td><span id="protocol"></span></td>
+				</tr>
+				<tr>
+					<td>Status</td>
+					<td>:</td>
+					<td><span id="status"></span></td>
+				</tr>
+				<tr>
+					<td>Size</td>
+					<td>:</td>
+					<td><span id="size"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>
+	
+</body>
+<script src="popup.js" ></script>
+</html>
