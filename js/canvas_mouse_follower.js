@@ -1,5 +1,5 @@
 /*
-	Canvas mouse follower -> simple 2d animation using html5 canvas
+	Canvas mouse follower -> simple 2d animation using html5 canvas.
 
 	Inspired by -> https://medium.com/@matswainson/getting-started-with-canvas-in-html5-ef1917cc496
 
@@ -8,7 +8,7 @@
 	<canvas id="myCanvas"></canvas>
 	
 	# js
-	let foo = canvasMouseFollower('myCanvas');
+	let foo = canvasMouseFollower('#myCanvas');
 	foo.config({
 		size: 25,
 		color: 'dodgerblue',
@@ -59,7 +59,7 @@ function canvasMouseFollower(selector){
 			particles: 25,	//no of mini particles
 			colors: false,	//color of the mini particles (true -> assign random colors to particles, false -> same color as that of main circle particle)
 			shadow: true,	//specify the shadow to be used are not
-			shadowColor: 'rgba(0,0,0,0)' 	//shadow color,
+			shadowColor: 'rgba(0,0,0,0)', 	//shadow color,
 			fps: 18		//frames per second, amount of times to update the canvas per second
 		},
 		pointer: {	
@@ -81,6 +81,7 @@ function canvasMouseFollower(selector){
 			self.options.colors = userOptions.colors || self.options.colors;
 			self.options.shadow = userOptions.shadow || self.options.shadow;
 			self.options.shadowColor = userOptions.shadowColor || self.options.shadowColor;
+			self.options.fps = userOptions.fps || self.options.fps;
 		},
 		setPointer: (e) => {
 			// helper function to assign cursor position to the pointer
